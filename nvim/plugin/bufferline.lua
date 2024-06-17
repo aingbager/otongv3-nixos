@@ -1,4 +1,4 @@
-require("bufferline").setup({})
+require("bufferline").setup{}
 --vim.cmd([[
 --noremap <silent><TAB> :BufferLineCycleNext<CR>
 --noremap <silent><S-TAB> :BufferLineCyclePrev<CR>

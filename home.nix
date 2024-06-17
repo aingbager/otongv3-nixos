@@ -51,7 +51,9 @@
   home.file = { };
 
   # alacritty
-  programs.alacritty = { enable = true; };
+  programs.alacritty = { 
+    enable = true; 
+  };
 
   programs.neovim = let
     toLua = str: ''
