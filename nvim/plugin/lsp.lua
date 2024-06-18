@@ -58,13 +58,18 @@ require("lspconfig").pyright.setup({
 	cmd = { "pyright-langserver", "--stdio" },
 })
 
+require("lspconfig").tsserver.setup({
+	capabilities = capabilities,
+	cmd = { "typescript-language-server", "--stdio" },
+})
+
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { "clangd", "pyright", "tsserver", "lua_ls" }
+--[[ local servers = { "clangd", "pyright", "tsserver", "lua_ls" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		-- on_attach = my_custom_on_attach,
 		capabilities = capabilities,
 	})
-end
+end ]]
 
 vim.keymap.set("n", "K", vim.lsp.buf.hover, {})

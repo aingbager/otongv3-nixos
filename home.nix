@@ -16,6 +16,8 @@
   home.packages = with pkgs; [
     nodejs_22
     nodePackages.vscode-html-languageserver-bin
+    nodePackages.vscode-css-languageserver-bin
+    nodePackages.typescript-language-server
     #libgcc
     dmenu
     telegram-desktop
@@ -78,8 +80,6 @@
       wl-clipboard
 
       lua-language-server
-      nodePackages.vscode-html-languageserver-bin
-      #nodePackages.vscode-css-languageserver-bin
       vscode-langservers-extracted
       nixfmt-classic
 
