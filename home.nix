@@ -8,11 +8,11 @@
   home.homeDirectory = "/home/aka";
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
-
   #module
-  imports = [
+  imports = [ 
     ./vlc.nix
-  ];
+    ./module/mpd.nix
+  ]; 
   home.packages = with pkgs; [
     nodejs_22
     nodePackages.vscode-html-languageserver-bin
@@ -37,14 +37,12 @@
     #llvmPackages_18.clangUseLLVM
     clang-tools_18
     clang_18
+    vscode-extensions.llvm-vs-code-extensions.vscode-clangd
     #rust lang
     cargo
     rustc
     rust-analyzer
-    #golang
-    go
-    gopls
-
+    rustfmt
     #python
     python3
 
@@ -53,9 +51,15 @@
   home.file = { };
 
   # alacritty
-  programs.alacritty = { 
-    enable = true; 
+  programs.alacritty = { enable = true; };
+
+  # golang
+  programs.go = {
+    enable = true;
+    goPath = ".go";
+    goBin = ".go/bin";
   };
+
 
   programs.neovim = let
     toLua = str: ''
@@ -101,6 +105,7 @@
           p.tree-sitter-python
           p.tree-sitter-json
           p.tree-sitter-cpp
+          p.tree-sitter-c
           p.tree-sitter-rust
           p.tree-sitter-go
           p.tree-sitter-html

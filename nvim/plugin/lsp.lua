@@ -63,6 +63,11 @@ require("lspconfig").tsserver.setup({
 	cmd = { "typescript-language-server", "--stdio" },
 })
 
+require("lspconfig").clangd.setup({
+  capabilities = capabilities,
+  cmd = {"clangd"},
+})
+
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 --[[ local servers = { "clangd", "pyright", "tsserver", "lua_ls" }
 for _, lsp in ipairs(servers) do
